@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0e14">
+<title>免费大模型API额度导航 2026 | Free LLM Quota Hub — 国内海外免费Token平台一站式查询</title>
+<meta name="description" content="2026年最新免费大模型API额度汇总：硅基流动、阿里云百炼、百度千帆、Gemini、Groq、OpenRouter等40+平台免费Token额度、限免活动、注册入口、调用代码示例一站式查询，每日自动更新。">
+<meta name="keywords" content="免费大模型API,免费token,大模型免费额度,LLM free tier,free LLM API,DeepSeek免费,Gemini免费,Groq,OpenRouter free,白嫖大模型">
+<meta property="og:title" content="免费大模型API额度导航 · Free LLM Quota Hub">
+<meta property="og:description" content="40+平台免费Token额度一站式查询，每日自动更新">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://free-llm-hub.example.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Free LLM Quota Hub 免费大模型额度导航","description":"2026年国内外免费大模型API额度一站式查询","inLanguage":["zh-CN","en"]}
+</script>
+<style>
+  :root{
+    --bg:#0b0e14; --card:#131822; --card2:#1a2130; --border:#243044;
+    --text:#e8edf6; --muted:#8b96a8; --accent:#4f8cff; --accent2:#22c58b;
+    --gold:#f5b942; --danger:#ff6b6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;min-height:100vh}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{padding:36px 20px 12px;text-align:center;position:relative}
+  header h1{font-size:30px;letter-spacing:1px}
+  header h1 .g{background:linear-gradient(90deg,#4f8cff,#22c58b,#f5b942);-webkit-background-clip:text;background-clip:text;color:transparent}
+  header p{color:var(--muted);margin-top:8px;font-size:14px}
+  .langsw{position:absolute;top:14px;right:16px;cursor:pointer;border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:13px;color:var(--muted);background:var(--card)}
+  .langsw:hover{color:var(--text)}
+  .stats{display:flex;justify-content:center;gap:28px;margin:20px auto 0;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat b{font-size:24px;color:var(--accent2)}
+  .stat span{display:block;font-size:12px;color:var(--muted)}
+
+  .panel{max-width:1200px;margin:24px auto;padding:0 16px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;position:sticky;top:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .toolbar input[type=search]{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:9px 14px;font-size:14px;outline:none}
+  .toolbar input[type=search]:focus{border-color:var(--accent)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--muted);border-radius:999px;padding:6px 13px;font-size:13px;user-select:none;transition:.15s}
+  .chip:hover{color:var(--text);border-color:var(--accent)}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.favchip.on{background:var(--gold);border-color:var(--gold)}
+  .select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px;font-size:13px}
+  .toolsrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .btn .short{display:none}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-top:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 16px 14px;transition:.15s;display:flex;flex-direction:column;gap:8px}
+  .card:hover{border-color:#3a4c6e;transform:translateY(-2px)}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .card h3{font-size:17px}
+  .card .en{font-size:12px;color:var(--muted);font-weight:400}
+  .favbtn{cursor:pointer;background:none;border:none;font-size:18px;color:var(--muted);line-height:1}
+  .favbtn.on{color:var(--gold)}
+  .badges{display:flex;flex-wrap:wrap;gap:5px}
+  .badge{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid var(--border);color:var(--muted);white-space:nowrap}
+  .badge.cn{color:#4f8cff;border-color:#2b4a7a}
+  .badge.gl{color:#f5b942;border-color:#6e5a2b}
+  .badge.free{color:#22c58b;border-color:#1e5c44;background:rgba(34,197,139,.08)}
+  .badge.ltd{color:#ff9f43;border-color:#7a542b;background:rgba(255,159,67,.08)}
+  .badge.cc{color:#ff6b6b;border-color:#7a2b2b}
+  .badge.ref{color:#22c58b;border-color:#1e5c44;background:rgba(34,197,139,.1)}
+  .quota{background:var(--card2);border-left:3px solid var(--accent2);border-radius:6px;padding:8px 12px;font-size:14px}
+  .meta{font-size:13px;color:var(--muted)}
+  .meta .k{color:#a8b6cc}
+  .models{font-size:13px;color:var(--muted)}
+  .models b{color:#c6d2e4;font-weight:600}
+  .notes{font-size:12px;color:var(--muted);border-top:1px dashed var(--border);padding-top:8px}
+  .card .actions{margin-top:auto;display:flex;gap:8px;padding-top:4px;flex-wrap:wrap}
+  .btn{display:inline-block;text-align:center;background:var(--accent);color:#fff;border-radius:9px;padding:7px 16px;font-size:13px;font-weight:600;border:none;cursor:pointer}
+  .btn:hover{text-decoration:none;filter:brightness(1.1)}
+  .btn.gold{background:var(--gold);color:#1a1408}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+
+  /* 代码示例 */
+  .codebox{display:none;background:#0d1117;border:1px solid var(--border);border-radius:9px;margin-top:4px;overflow:hidden}
+  .codebox.open{display:block}
+  .codetabs{display:flex;gap:2px;background:var(--card2);padding:4px 6px 0}
+  .codetab{cursor:pointer;padding:5px 12px;font-size:12px;color:var(--muted);border-radius:6px 6px 0 0}
+  .codetab.on{background:#0d1117;color:var(--accent2)}
+  .codebox pre{margin:0;padding:12px;font-size:12px;overflow-x:auto;color:#c9d6e8;font-family:Consolas,Menlo,monospace;line-height:1.5}
+
+  /* 模态框：计算器 */
+  .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;padding:16px}
+  .modal.open{display:flex}
+  .modal .box{background:var(--card);border:1px solid var(--border);border-radius:16px;max-width:680px;width:100%;max-height:86vh;overflow:auto;padding:22px}
+  .modal h3{font-size:18px;margin-bottom:4px}
+  .modal .close{float:right;cursor:pointer;background:none;border:none;color:var(--muted);font-size:20px}
+  .calc-row{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap;align-items:center}
+  .calc-row label{font-size:13px;color:var(--muted);min-width:130px}
+  .calc-row input{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:8px 12px;font-size:14px;width:160px}
+  .calclist{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+  .calcitem{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+  .calcitem .ci-name{font-size:14px;font-weight:600;overflow-wrap:anywhere}
+  .calcitem .ci-v{grid-column:2;grid-row:1;font-size:14px;font-weight:600;text-align:right;white-space:nowrap}
+  .calcitem .ci-q{grid-column:1/-1;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+  .calcitem .ci-use{grid-column:1/-1;font-size:11px;color:var(--muted)}
+  .result-good{color:var(--accent2);font-weight:600}
+  .result-ok{color:var(--gold);font-weight:600}
+
+  .livebox{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-top:18px}
+  .livehead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+  .livehead h2{font-size:17px;color:var(--accent)}
+  .livemeta{font-size:12px;color:var(--accent2)}
+  .livegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:12px}
+  .liveitem{background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:8px 12px;font-size:13px}
+  .liveitem .mid{color:var(--text);font-weight:600;word-break:break-all}
+  .liveitem .mctx{color:var(--muted);font-size:11px}
+  .livenote{margin-top:12px;font-size:12px;color:var(--muted)}
+  .livenote code{background:var(--bg);padding:1px 6px;border-radius:5px;color:var(--accent2)}
+  .empty{text-align:center;color:var(--muted);padding:60px 0;display:none}
+  footer{max-width:1200px;margin:40px auto 30px;padding:0 20px;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--border);padding-top:20px}
+  .disclaimer{background:rgba(245,185,66,.06);border:1px solid #4a3f22;border-radius:12px;max-width:1200px;margin:26px auto 0;padding:14px 18px;font-size:13px;color:#d8c69a;text-align:center}
+  @media(max-width:768px){
+    header{padding:20px 14px 6px}
+    .langsw{top:10px;right:10px;padding:4px 10px;font-size:12px}
+    .panel{margin:14px auto;padding:0 12px}
+    .toolbar{position:static;top:auto;padding:10px;gap:8px;border-radius:12px;box-shadow:none}
+    .toolbar input[type=search]{flex:1 1 100%;min-width:0;font-size:16px;order:-1}
+    .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:100%}
+    .chips::-webkit-scrollbar{display:none}
+    .chip{flex:0 0 auto}
+    .toolsrow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:100%}
+    .toolsrow::-webkit-scrollbar{display:none}
+    .toolsrow>*{flex:0 0 auto}
+    .toolsrow .btn{padding:9px 14px}
+    .toolsrow .btn .full{display:none}
+    .toolsrow .btn .short{display:inline}
+    .livegrid{max-height:248px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+    .disclaimer{margin-top:16px;padding:12px 14px;text-align:left}
+    .card{padding:14px}
+    .card .top{flex-wrap:wrap}
+    .card .top>div:last-child{flex:1 1 100%}
+    .card .top .badges{flex:1 1 auto}
+    .card .actions .btn{flex:1 1 auto;padding:10px 12px}
+    .modal .box{padding:16px;max-height:92vh}
+  }
+  @media(max-width:520px){header h1{font-size:22px}.grid{grid-template-columns:1fr}.calc-row label{min-width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="langsw" id="langsw">🌐 EN</div>
+  <h1>🧰 <span class="g" id="title">免费大模型额度导航</span></h1>
+  <p id="subtitle">集全网 / 外网送免费 Token 的模型平台与限时免费资源 · 一站查询 · 每日更新</p>
+  <div class="stats">
+    <div class="stat"><b id="stTotal">0</b><span data-i="收录平台">收录平台</span></div>
+    <div class="stat"><b id="stCn">0</b><span data-i="国内直连">国内直连</span></div>
+    <div class="stat"><b id="stGl">0</b><span data-i="海外平台">海外平台</span></div>
+    <div class="stat"><b id="stFree">0</b><span data-i="永久免费层">永久免费层</span></div>
+  </div>
+</header>
+
+<div class="panel">
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="🔍 搜索平台 / 模型（如 DeepSeek、Gemini、千帆…）">
+    <div class="chips" id="regionChips">
+      <div class="chip on" data-f="all" data-t="全部">全部</div>
+      <div class="chip" data-f="cn" data-t="🇨🇳 国内直连">🇨🇳 国内直连</div>
+      <div class="chip" data-f="global" data-t="🌐 海外需外网">🌐 海外需外网</div>
+    </div>
+    <div class="chips" id="typeChips">
+      <div class="chip on" data-f="all" data-t="全部类型">全部类型</div>
+      <div class="chip" data-f="credit" data-t="注册赠金">注册赠金</div>
+      <div class="chip" data-f="free_tier" data-t="永久免费">永久免费</div>
+      <div class="chip" data-f="limited" data-t="限时免费">限时免费</div>
+      <div class="chip favchip" data-f="fav" data-t="⭐ 我的收藏">⭐ 我的收藏</div>
+    </div>
+    <div class="toolsrow">
+      <select id="sort" class="select">
+        <option value="default" data-t="默认排序">默认排序</option>
+        <option value="quota" data-t="额度从大到小">额度从大到小</option>
+        <option value="name" data-t="按名称 A-Z">按名称 A-Z</option>
+      </select>
+      <button class="btn ghost" id="calcBtn" title="额度计算器"><span class="full" data-t="🧮 额度计算器">🧮 额度计算器</span><span class="short">🧮</span></button>
+      <button class="btn ghost" id="exportBtn" title="导出收藏"><span class="full" data-t="⬇ 备份">⬇ 备份</span><span class="short">⬇</span></button>
+      <button class="btn ghost" id="importBtn" title="导入收藏"><span class="full" data-t="⬆ 恢复">⬆ 恢复</span><span class="short">⬆</span></button>
+    </div>
+    <input type="file" id="importFile" accept=".json" style="display:none">
+  </div>
+
+  <div class="disclaimer"><span data-i="⚠️ 各平台免费额度政策变动频繁，平台额度为人工核对快照（快照时间：">⚠️ 各平台免费额度政策变动频繁，平台额度为人工核对快照（快照时间：</span><span id="updDate"></span><span data-i="）；实时免费模型每次打开页面自动获取。使用前请以各官网为准，部分链接为推荐链接，支持本站持续更新。">）；实时免费模型每次打开页面自动获取。使用前请以各官网为准，部分链接为推荐链接，支持本站持续更新。</span></div>
+
+  <!-- 实时免费模型区 -->
+  <div class="livebox" id="liveBox">
+    <div class="livehead">
+      <h2 data-i="⚡ 实时免费模型 · 每次打开页面即时获取">⚡ 实时免费模型 · 每次打开页面即时获取</h2>
+      <span class="livemeta" id="liveMeta">…</span>
+    </div>
+    <div class="livegrid" id="liveGrid"></div>
+    <div class="livenote">💡 <span data-i="以上为 OpenRouter 当前在线、价格 0 元的模型（">以上为 OpenRouter 当前在线、价格 0 元的模型（</span><code>:free</code><span data-i=" 系列），每次刷新页面实时拉取。"> 系列），每次刷新页面实时拉取。</span></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">…</div>
+</div>
+
+<!-- 额度计算器 -->
+<div class="modal" id="calcModal">
+  <div class="box">
+    <button class="close" id="calcClose">✕</button>
+    <h3 data-i="🧮 免费额度能撑多久？">🧮 免费额度能撑多久？</h3>
+    <div class="calc-row">
+      <label data-i="每月调用量（次）">每月调用量（次）</label><input id="cCalls" type="number" value="500">
+    </div>
+    <div class="calc-row">
+      <label data-i="平均每次输入 tokens">平均每次输入 tokens</label><input id="cIn" type="number" value="1000">
+    </div>
+    <div class="calc-row">
+      <label data-i="平均每次输出 tokens">平均每次输出 tokens</label><input id="cOut" type="number" value="500">
+    </div>
+    <div class="calclist" id="calcBody"></div>
+    <p style="font-size:12px;color:var(--muted);margin-top:10px" data-i="* 基于各平台公开额度估算，实际以官网为准；每日/每月重置的平台按重置量累计。">* 基于各平台公开额度估算，实际以官网为准；每日/每月重置的平台按重置量累计。</p>
+  </div>
+</div>
+
+<footer>
+  <span data-i="数据仅供参考 · 额度以官方页面为准 · 部分链接为推荐链接（Affiliate），通过它们注册不影响你获得的额度，还能支持本站持续更新">数据仅供参考 · 额度以官方页面为准 · 部分链接为推荐链接（Affiliate），通过它们注册不影响你获得的额度，还能支持本站持续更新</span><br>
+  <small style="opacity:.6">Free LLM Quota Hub — static site · GitHub Pages / Vercel / Cloudflare Pages ready</small>
+</footer>
+
+<script src="data.js"></script>
+<script>
+/* ============ i18n ============ */
+const I18N={
+  en:{
+    "收录平台":"Platforms","国内直连":"CN Direct","海外平台":"Global","永久免费层":"Free Tiers",
+    "全部":"All","🇨🇳 国内直连":"🇨🇳 CN Direct","🌐 海外需外网":"🌐 Global (VPN)",
+    "全部类型":"All Types","注册赠金":"Signup Credit","永久免费":"Free Tier","限时免费":"Limited-time","⭐ 我的收藏":"⭐ My Favorites",
+    "默认排序":"Default","额度从大到小":"Quota ↓","按名称 A-Z":"Name A-Z",
+    "🧮 额度计算器":"🧮 Quota Calculator","⬇ 备份":"⬇ Export","⬆ 恢复":"⬆ Import",
+    "⚡ 实时免费模型 · 每次打开页面即时获取":"⚡ Live Free Models · fetched on every page load",
+    "以上为 OpenRouter 当前在线、价格 0 元的模型（":"Live list of OpenRouter models priced at $0 (",
+    " 系列），每次刷新页面实时拉取。":" series), fetched in real time on every refresh.",
+    "⚠️ 各平台免费额度政策变动频繁，平台额度为人工核对快照（快照时间：":"⚠️ Quota policies change often. Platform quotas are a manually verified snapshot (snapshot: ",
+    "）；实时免费模型每次打开页面自动获取。使用前请以各官网为准，部分链接为推荐链接，支持本站持续更新。":"); the live free-model list is fetched on every page load. Verify on official sites; some links are affiliate links that support this site.",
+    "🧮 免费额度能撑多久？":"🧮 How long will free quota last?",
+    "每月调用量（次）":"Calls per month","平均每次输入 tokens":"Avg input tokens/call","平均每次输出 tokens":"Avg output tokens/call",
+    "平台":"Platform","免费额度":"Free quota","你的月消耗":"Your monthly use","能撑":"Lasts",
+    "* 基于各平台公开额度估算，实际以官网为准；每日/每月重置的平台按重置量累计。":"* Estimated from public quotas; daily/monthly resets counted cumulatively.",
+    "数据仅供参考 · 额度以官方页面为准 · 部分链接为推荐链接（Affiliate），通过它们注册不影响你获得的额度，还能支持本站持续更新":"For reference only · verify on official sites · some affiliate links — registering via them won't reduce your quota and supports this site",
+    "免费大模型额度导航":"Free LLM API Quota Hub",
+    "集全网 / 外网送免费 Token 的模型平台与限时免费资源 · 一站查询 · 每日更新":"Every platform giving free LLM tokens — CN & global · one-stop lookup · daily updates",
+    "没有匹配的平台，换个关键词试试～":"No matches — try another keyword",
+    "前往领取 →":"Get it →","有效期/重置：":"Validity/reset: ","主要模型：":"Models: ",
+    "实时获取成功":"Live fetch OK","实时接口不可达，已显示每日快照":"Live API unreachable, showing daily snapshot",
+    "查看代码":"</> Code","收藏":"☆","已收藏":"★"
+  }
+};
+let lang='zh';
+const t=s=>lang==='zh'?s:(I18N.en[s]||s);
+function applyLang(){
+  document.documentElement.lang=lang==='zh'?'zh-CN':'en';
+  document.getElementById('langsw').textContent=lang==='zh'?'🌐 EN':'🌐 中文';
+  document.getElementById('title').textContent=t('免费大模型额度导航');
+  document.getElementById('subtitle').textContent=t('集全网 / 外网送免费 Token 的模型平台与限时免费资源 · 一站查询 · 每日更新');
+  document.querySelectorAll('[data-i]').forEach(el=>el.textContent=t(el.dataset.i));
+  document.querySelectorAll('[data-t]').forEach(el=>{if(el.tagName==='OPTION'){el.textContent=t(el.dataset.t)}else{el.textContent=t(el.dataset.t)}});
+  setPlaceholder();
+  renderLiveMeta();
+  document.getElementById('empty').textContent=t('没有匹配的平台，换个关键词试试～');
+  render();
+}
+function setPlaceholder(){
+  const narrow=window.innerWidth<=768;
+  q.placeholder=lang==='zh'
+    ? (narrow?'🔍 搜索平台或模型':'🔍 搜索平台 / 模型（如 DeepSeek、Gemini、千帆…）')
+    : (narrow?'🔍 Search platform or model':'🔍 Search platform / model (e.g. DeepSeek, Gemini, Groq)');
+}
+window.addEventListener('resize',setPlaceholder);
+document.getElementById('langsw').onclick=()=>{lang=lang==='zh'?'en':'zh';applyLang();};
+
+/* ============ 收藏（localStorage） ============ */
+const FAVKEY='freehub_favs';
+let favs=new Set(JSON.parse(localStorage.getItem(FAVKEY)||'[]'));
+function saveFavs(){localStorage.setItem(FAVKEY,JSON.stringify([...favs]))}
+document.getElementById('exportBtn').onclick=()=>{
+  const blob=new Blob([JSON.stringify({favs:[...favs]},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='freehub-favs.json';a.click();
+};
+document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();
+document.getElementById('importFile').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  f.text().then(txt=>{
+    try{const j=JSON.parse(txt);if(Array.isArray(j.favs)){favs=new Set(j.favs);saveFavs();render();alert('✅ 已导入 '+favs.size+' 条收藏')}}catch(_){alert('❌ 文件格式错误')}
+  });
+};
+
+/* ============ 主渲染 ============ */
+const grid=document.getElementById('grid');
+const q=document.getElementById('q');
+const sortSel=document.getElementById('sort');
+let regionF='all',typeF='all';
+
+document.getElementById('updDate').textContent=(DATA.updated||'—');
+document.getElementById('stTotal').textContent=DATA.items.length;
+document.getElementById('stCn').textContent=DATA.items.filter(i=>i.region==='cn').length;
+document.getElementById('stGl').textContent=DATA.items.filter(i=>i.region==='global').length;
+
+/* ---------- 实时免费模型 ---------- */
+let liveState={ok:null,count:0,at:''};
+function renderLiveMeta(){
+  const el=document.getElementById('liveMeta');
+  if(liveState.ok===null){el.textContent='…';return}
+  el.textContent=liveState.ok
+    ? `✅ ${t('实时获取成功')} · ${liveState.count} · ${liveState.at}`
+    : `📦 ${t('实时接口不可达，已显示每日快照')}（${(DATA.live&&DATA.live.fetchedAt)||'—'}）· ${liveState.count}`;
+}
+async function loadLive(){
+  const liveGrid=document.getElementById('liveGrid');
+  let models=DATA.live&&DATA.live.openrouterFreeModels||[];
+  try{
+    const r=await fetch('https://openrouter.ai/api/v1/models');
+    const j=await r.json();
+    models=j.data.filter(m=>{
+      const p=m.pricing||{};
+      const f=k=>{try{return parseFloat(p[k])||0}catch(e){return 1}};
+      return (m.id||'').endsWith(':free')||(f('prompt')===0&&f('completion')===0);
+    }).map(m=>({id:m.id,name:m.name,context:m.context_length}))
+      .sort((a,b)=>a.id.localeCompare(b.id));
+    liveState={ok:true,count:models.length,at:new Date().toLocaleTimeString(lang==='zh'?'zh-CN':'en-US')};
+  }catch(e){
+    liveState={ok:false,count:models.length,at:''};
+  }
+  renderLiveMeta();
+  liveGrid.innerHTML=models.length?models.map(m=>`
+    <div class="liveitem"><div class="mid">${m.id}</div><div class="mctx">${m.name||''}${m.context?' · ctx '+Number(m.context).toLocaleString():''}</div></div>`).join('')
+    :'<div class="liveitem">—</div>';
+  document.getElementById('stFree').textContent=Math.max(models.length,DATA.items.filter(i=>i.type==='free_tier').length);
+}
+loadLive();
+
+/* ---------- 代码示例 ---------- */
+function codeExamples(d){
+  const base=d.apiBase||'https://API_ENDPOINT/v1';
+  const model=d.models.split('、')[0].split('/')[0]||'MODEL';
+  const py=`from openai import OpenAI\nclient = OpenAI(api_key="YOUR_KEY", base_url="${base}")\nr = client.chat.completions.create(\n    model="${model}",\n    messages=[{"role":"user","content":"Hello!"}],\n)\nprint(r.choices[0].message.content)`;
+  const js=`import OpenAI from "openai";\nconst client = new OpenAI({ apiKey: "YOUR_KEY", baseURL: "${base}" });\nconst r = await client.chat.completions.create({\n  model: "${model}",\n  messages: [{ role: "user", content: "Hello!" }],\n});\nconsole.log(r.choices[0].message.content);`;
+  const curl=`curl ${base}/chat/completions \\\n  -H "Authorization: Bearer YOUR_KEY" \\\n  -H "Content-Type: application/json" \\\n  -d '{"model":"${model}","messages":[{"role":"user","content":"Hello!"}]}'`;
+  return {py,js,curl};
+}
+function codeboxHTML(d){
+  const c=codeExamples(d);
+  return `<div class="codebox" id="code-${CSS.escape(d.nameEn||d.name)}">
+    <div class="codetabs">
+      <div class="codetab on" data-l="py">Python</div>
+      <div class="codetab" data-l="js">Node.js</div>
+      <div class="codetab" data-l="curl">cURL</div>
+    </div>
+    <pre data-pane="py">${c.py.replace(/</g,'&lt;')}</pre>
+    <pre data-pane="js" style="display:none">${c.js.replace(/</g,'&lt;')}</pre>
+    <pre data-pane="curl" style="display:none">${c.curl.replace(/</g,'&lt;')}</pre>
+  </div>`;
+}
+grid.addEventListener('click',e=>{
+  const tab=e.target.closest('.codetab');
+  if(tab){
+    const box=tab.closest('.codebox');
+    box.querySelectorAll('.codetab').forEach(x=>x.classList.toggle('on',x===tab));
+    box.querySelectorAll('pre').forEach(p=>p.style.display=p.dataset.pane===tab.dataset.l?'':'none');
+    return;
+  }
+  const codeBtn=e.target.closest('[data-code]');
+  if(codeBtn){
+    document.getElementById('code-'+CSS.escape(codeBtn.dataset.code))?.classList.toggle('open');
+    return;
+  }
+  const favBtn=e.target.closest('.favbtn');
+  if(favBtn){
+    const id=favBtn.dataset.id;
+    favs.has(id)?favs.delete(id):favs.add(id);
+    saveFavs();render();
+  }
+});
+
+/* ---------- 卡片 ---------- */
+function quotaNum(x){
+  const m=String(x).match(/([\d.]+)\s*万/);
+  let v=0;
+  if(m)v=parseFloat(m[1]);
+  const dm=String(x).match(/([\d.]+)\s*亿/);
+  if(dm)v=parseFloat(dm[1])*100;
+  if(/每天|每日|daily|\/ ?day/i.test(String(x)))v=v*365;
+  return v;
+}
+function cardHTML(d){
+  const id=d.nameEn||d.name;
+  const fav=favs.has(id);
+  const regionB=d.region==='cn'?'<span class="badge cn">🇨🇳 '+(lang==='zh'?'国内直连':'CN Direct')+'</span>':'<span class="badge gl">🌐 '+(lang==='zh'?'需外网':'Needs VPN')+'</span>';
+  const typeB={credit:'<span class="badge ltd">🎁 '+(lang==='zh'?'注册赠金':'Signup Credit')+'</span>',free_tier:'<span class="badge free">♾️ '+(lang==='zh'?'永久免费':'Free Tier')+'</span>',limited:'<span class="badge ltd">⏳ '+(lang==='zh'?'限时免费':'Limited')+'</span>'}[d.type]||'';
+  const ccB=d.creditCard?'<span class="badge cc">💳 '+(lang==='zh'?'需信用卡':'Credit card req')+'</span>':'<span class="badge">💳 '+(lang==='zh'?'免信用卡':'No credit card')+'</span>';
+  const vpnB=d.vpn?'<span class="badge vpn">'+(lang==='zh'?'需科学上网':'Needs VPN')+'</span>':'<span class="badge novpn">✅ '+(lang==='zh'?'无需外网':'No VPN needed')+'</span>';
+  const refB=d.affiliateUrl?'<span class="badge ref">🤝 '+(lang==='zh'?'推荐链接':'Affiliate')+'</span>':'';
+  const mainUrl=d.affiliateUrl||d.url;
+  return `<div class="card">
+    <div class="top"><div><h3>${d.name} <span class="en">${d.nameEn||''}</span></h3></div>
+    <div style="display:flex;gap:6px;align-items:center">
+      <button class="favbtn ${fav?'on':''}" data-id="${id}" title="${t('收藏')}">${fav?'★':'☆'}</button>
+      <div class="badges">${regionB}${typeB}</div>
+    </div></div>
+    <div class="quota">💰 <b>${d.quota}</b></div>
+    <div class="meta"><span class="k">${t('有效期/重置：')}</span>${d.validity}</div>
+    <div class="models"><span class="k">${t('主要模型：')}</span><b>${d.models}</b></div>
+    <div class="badges">${ccB}${vpnB}${refB}${d.category?`<span class="badge">${d.category}</span>`:''}</div>
+    ${d.notes?`<div class="notes">💡 ${d.notes}</div>`:''}
+    <div class="actions">
+      <a class="btn" href="${mainUrl}" target="_blank" rel="noopener nofollow sponsored">${t('前往领取 →')}</a>
+      ${d.apiBase?`<button class="btn ghost" data-code="${id}">&lt;/&gt; ${lang==='zh'?'示例代码':'Code'}</button>`:''}
+      <button class="btn ghost" data-calc="${id}">🧮</button>
+    </div>
+    ${d.apiBase?codeboxHTML(d):''}
+  </div>`;
+}
+function render(){
+  const kw=q.value.trim().toLowerCase();
+  let list=DATA.items.filter(d=>{
+    const id=d.nameEn||d.name;
+    if(regionF!=='all'&&d.region!==regionF)return false;
+    if(typeF==='fav'){if(!favs.has(id))return false}
+    else if(typeF!=='all'&&d.type!==typeF)return false;
+    if(kw){
+      const hay=(d.name+' '+(d.nameEn||'')+' '+d.models+' '+d.quota+' '+(d.notes||'')+' '+(d.category||'')).toLowerCase();
+      if(!hay.includes(kw))return false;
+    }
+    return true;
+  });
+  const s=sortSel.value;
+  if(s==='quota')list=[...list].sort((a,b)=>quotaNum(b.quota)-quotaNum(a.quota));
+  if(s==='name')list=[...list].sort((a,b)=>String(a.nameEn||a.name).localeCompare(String(b.nameEn||b.name)));
+  grid.innerHTML=list.map(cardHTML).join('');
+  document.getElementById('empty').style.display=list.length?'none':'block';
+}
+q.addEventListener('input',render);
+sortSel.addEventListener('change',render);
+for(const [box,setter] of [[document.getElementById('regionChips'),v=>regionF=v],[document.getElementById('typeChips'),v=>typeF=v]]){
+  box.addEventListener('click',e=>{
+    const c=e.target.closest('.chip');if(!c)return;
+    box.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');setter(c.dataset.f);render();
+  });
+}
+
+/* ---------- 额度计算器 ---------- */
+const calcModal=document.getElementById('calcModal');
+function parseQuotaTokens(x){
+  const s=String(x);
+  let v=0;
+  const yi=s.match(/([\d.]+)\s*亿/); if(yi)v+=parseFloat(yi[1])*1e8;
+  const w=s.match(/([\d.]+)\s*万/); if(w)v+=parseFloat(w[1])*1e4;
+  const p=s.match(/\$\s*([\d.]+)/); if(p&&!v)v+=parseFloat(p[1])*1e6; // 粗略按 $1≈1M tokens 折算
+  return v;
+}
+function isReset(s){return /每天|每日|daily|每月|monthly|\/ ?(day|month)/i.test(String(s))}
+function runCalc(){
+  const calls=+document.getElementById('cCalls').value||0;
+  const tin=+document.getElementById('cIn').value||0;
+  const tout=+document.getElementById('cOut').value||0;
+  const monthly=calls*(tin+tout);
+  const rows=DATA.items.filter(i=>i.type!=='limited'||/免费|free|亿|万|\$/i.test(i.quota)).map(i=>{
+    let q=parseQuotaTokens(i.quota);
+    if(isReset(i.quota)&&/每日|每天|daily/i.test(i.quota))q*=30;
+    if(isReset(i.quota)&&/每月|monthly/i.test(i.quota))q*=1;
+    if(q===0)return null;
+    const months=q/monthly;
+    return {name:i.name,quota:i.quota,monthly,months};
+  }).filter(Boolean).sort((a,b)=>b.months-a.months).slice(0,15);
+  document.getElementById('calcBody').innerHTML=rows.map(r=>`<div class="calcitem">
+    <div class="ci-name">${r.name}</div>
+    <div class="ci-v ${r.months>=6?'result-good':r.months>=1?'result-ok':''}">${r.months>=36?'♾️ '+(lang==='zh'?'长期够用':'plenty'):r.months.toFixed(1)+' '+(lang==='zh'?'个月':'mo')}</div>
+    <div class="ci-q">${r.quota}</div>
+    <div class="ci-use">${lang==='zh'?'你的月消耗 ≈ '+(r.monthly/1e4).toFixed(1)+' 万 tokens':'Monthly use ≈ '+(r.monthly/1e3).toFixed(1)+'k tokens'}</div>
+  </div>`).join('');
+}
+document.getElementById('calcBtn').onclick=()=>{calcModal.classList.add('open');runCalc()};
+document.getElementById('calcClose').onclick=()=>calcModal.classList.remove('open');
+calcModal.onclick=e=>{if(e.target===calcModal)calcModal.classList.remove('open')};
+grid.addEventListener('click',e=>{const b=e.target.closest('[data-calc]');if(b){calcModal.classList.add('open');runCalc()}});
+
+applyLang();
+</script>
+</body>
+</html>

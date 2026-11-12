@@ -1,0 +1,11 @@
+{
+  "_说明": "注册各平台后把邀请链接填到这里，update_data.py 会自动合并进 data.js 并渲染到卡片按钮。把 REPLACE_ME 换成你的专属推荐码。",
+  "OpenRouter": "https://openrouter.ai/?ref=REPLACE_ME",
+  "Novita AI": "https://novita.ai/?ref=REPLACE_ME",
+  "DeepInfra": "https://deepinfra.com/?ref=REPLACE_ME",
+  "Cerebras Inference": "https://cloud.cerebras.ai/?ref=REPLACE_ME",
+  "Fireworks AI": "https://fireworks.ai/?ref=REPLACE_ME",
+  "SiliconFlow": "https://cloud.siliconflow.cn/i/REPLACE_ME",
+  "AI Ping": "https://aiping.cn/?ref=REPLACE_ME",
+  "Qiniu Cloud AI Inference": "https://www.qiniu.com/?ref=REPLACE_ME"
+}
