@@ -2,7 +2,10 @@
 
 集全网（国内 + 海外）送免费 Token 的大模型平台、限时免费资源于一体的静态查询网站。
 
-在线地址：https://f1re-03.github.io/free-llm-hub/
+在线地址：
+
+- Cloudflare Pages：https://free-llm-hub-9pd.pages.dev/ （商用托管，推荐）
+- GitHub Pages：https://f1re-03.github.io/free-llm-hub/
 
 ## 功能
 
