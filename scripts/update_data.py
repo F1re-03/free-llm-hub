@@ -13,14 +13,15 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 TIMEZONE = datetime.timezone(datetime.timedelta(hours=8))  # 北京时间
 SITE_URL = "https://free-llm-hub-9pd.pages.dev/"
 
+# (相对路径, 权重, 更新频率)
+PAGES = [
+    ("", "1.0", "daily"),
+    ("guide/siliconflow.html", "0.8", "weekly"),
+]
+
 SITEMAP = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>{url}</loc>
-    <lastmod>{lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+{entries}
 </urlset>
 """
 
@@ -119,9 +120,17 @@ def main():
     (ROOT / "data.js").write_text(payload, encoding="utf-8")
 
     # sitemap 的 lastmod 跟随每日更新，方便搜索引擎判断抓取时机
-    (ROOT / "sitemap.xml").write_text(
-        SITEMAP.format(url=SITE_URL, lastmod=out["updated"][:10]), encoding="utf-8"
+    lastmod = out["updated"][:10]
+    entries = "\n".join(
+        f"""  <url>
+    <loc>{SITE_URL}{path}</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>{freq}</changefreq>
+    <priority>{prio}</priority>
+  </url>"""
+        for path, prio, freq in PAGES
     )
+    (ROOT / "sitemap.xml").write_text(SITEMAP.format(entries=entries), encoding="utf-8")
 
     n_free = len(live["openrouterFreeModels"])
     n_ref = sum(1 for i in out["items"] if i.get("affiliateUrl"))
