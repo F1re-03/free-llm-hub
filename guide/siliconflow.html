@@ -14,7 +14,7 @@
     --text:#e8edf6; --muted:#8b96a8; --accent:#4f8cff; --accent2:#22c58b; --gold:#f5b942;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}
+  body{background:var(--bg);color:var(--text);font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;overflow-x:hidden}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
   .topbar{border-bottom:1px solid var(--border);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
@@ -28,13 +28,13 @@
   p{margin-bottom:12px}
   ul,ol{margin:0 0 14px 22px}
   li{margin-bottom:6px}
-  code{background:#1a2130;border:1px solid var(--border);border-radius:5px;padding:1px 6px;font-size:13px}
+  code{background:#1a2130;border:1px solid var(--border);border-radius:5px;padding:1px 6px;font-size:13px;word-break:break-all}
   .box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:18px 0}
   .box.key{border-color:#2f5d4a}
   .box.warn{border-color:#5a4030}
   .box b{color:var(--gold)}
-  table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
-  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;table-layout:fixed}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left;word-break:break-word}
   th{background:var(--card);color:var(--muted);font-weight:500;font-size:13px}
   td code{font-size:12px}
   .cta{display:block;text-align:center;background:var(--accent);color:#fff;border-radius:10px;padding:14px;font-size:15px;margin:26px 0 8px}
