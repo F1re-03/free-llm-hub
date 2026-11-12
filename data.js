@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-12 21:00",
+  "updated": "2026-11-12 21:30",
   "items": [
     {
       "name": "硅基流动",
@@ -782,7 +782,7 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-12 21:00",
+    "fetchedAt": "2026-11-12 21:30",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",

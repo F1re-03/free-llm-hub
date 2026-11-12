@@ -11,6 +11,18 @@ import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TIMEZONE = datetime.timezone(datetime.timedelta(hours=8))  # 北京时间
+SITE_URL = "https://free-llm-hub-9pd.pages.dev/"
+
+SITEMAP = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{url}</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
 
 
 def fetch_json(url: str, headers: dict | None = None):
@@ -105,6 +117,11 @@ def main():
 
     payload = "const DATA = " + json.dumps(out, ensure_ascii=False, indent=2) + ";\n"
     (ROOT / "data.js").write_text(payload, encoding="utf-8")
+
+    # sitemap 的 lastmod 跟随每日更新，方便搜索引擎判断抓取时机
+    (ROOT / "sitemap.xml").write_text(
+        SITEMAP.format(url=SITE_URL, lastmod=out["updated"][:10]), encoding="utf-8"
+    )
 
     n_free = len(live["openrouterFreeModels"])
     n_ref = sum(1 for i in out["items"] if i.get("affiliateUrl"))
