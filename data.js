@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-12 20:41",
+  "updated": "2026-11-12 21:00",
   "items": [
     {
       "name": "硅基流动",
@@ -17,7 +17,7 @@ const DATA = {
       "apiBase": "https://api.siliconflow.cn/v1",
       "openaiCompat": true,
       "refInfo": "邀请返佣：邀请好友双方均可获得代金券奖励（见官网邀请中心）",
-      "affiliateUrl": "",
+      "affiliateUrl": "https://cloud.siliconflow.cn/i/WpBjWEsh",
       "hasRef": true
     },
     {
@@ -782,7 +782,7 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-12 20:41",
+    "fetchedAt": "2026-11-12 21:00",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",

@@ -74,7 +74,8 @@ def main():
         item["apiBase"] = x.get("apiBase")
         item["openaiCompat"] = x.get("openaiCompat", False)
         item["refInfo"] = x.get("refInfo", "")
-        aff = affiliates.get(item["name"], "")
+        # affiliates.json 里既可能写中文名也可能写英文名，两者都匹配
+        aff = affiliates.get(item["name"]) or affiliates.get(name_en) or ""
         item["affiliateUrl"] = aff if aff and "REPLACE_ME" not in aff else ""
         # 有返佣标记的优先展示
         item["hasRef"] = bool(item["affiliateUrl"]) or bool(item.get("refInfo"))
