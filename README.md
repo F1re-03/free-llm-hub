@@ -2,10 +2,7 @@
 
 集全网（国内 + 海外）送免费 Token 的大模型平台、限时免费资源于一体的静态查询网站。
 
-在线地址：
-
-- Cloudflare Pages：https://free-llm-hub-9pd.pages.dev/ （商用托管，推荐）
-- GitHub Pages：https://f1re-03.github.io/free-llm-hub/
+在线地址：https://free-llm-hub-9pd.pages.dev/
 
 ## 功能
 
@@ -21,19 +18,13 @@
 
 直接用浏览器打开 `index.html` 即可，无需任何后端或构建步骤。
 
-## 部署（可选）
+## 部署
 
-纯静态页面，任选其一：
+托管在 Cloudflare Pages，已与 GitHub 仓库 `main` 分支建立自动部署：每次推送（包括每日数据更新）都会触发重新构建并发布。
 
-```bash
-# GitHub Pages：把仓库推上去，Settings → Pages → Source 选 "Deploy from a branch" → main / (root)
+构建配置：框架预设 `None`，构建命令留空，输出目录 `/`。
 
-# Vercel
-vercel deploy free-llm-hub
-
-# Cloudflare Pages
-# 控制台上传目录，或 wrangler pages deploy free-llm-hub
-```
+仓库是纯静态页面，没有构建步骤，直接打开 `index.html` 即可预览。
 
 ## 更新数据
 

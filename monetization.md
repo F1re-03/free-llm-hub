@@ -47,7 +47,7 @@ GitHub Pages 的限制文档（`github-pages-limits.md`）原文：
 
 一个以导流注册为主要目的之一的站点，存在被判定为「主要指向促成商业交易」的风险。把变现做成正式业务前，应迁移到明确允许商用的托管服务，例如 Cloudflare Pages 免费版。
 
-当前状态（2026-11-12）：主站已部署到 `https://free-llm-hub-9pd.pages.dev/`，GitHub Pages 暂时保留为镜像。两处内容相同，若要长期并行，需要设置规范链接（canonical）或下线镜像，避免搜索收录重复。
+当前状态（2026-11-12）：站点已迁至 Cloudflare Pages，地址 `https://free-llm-hub-9pd.pages.dev/`，页面 `<link rel="canonical">` 指向该地址；GitHub Pages 已关闭，不再有第二份公开副本。仓库只作源码与部署来源。
 
 ## 红线
 
