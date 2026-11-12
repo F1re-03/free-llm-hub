@@ -1,5 +1,6 @@
 {
   "_说明": "注册各平台后把邀请链接填到这里，update_data.py 会自动合并进 data.js 并渲染到卡片按钮。把 REPLACE_ME 换成你的专属推荐码。",
+  "Alibaba Cloud Model Studio (Bailian)": "https://www.aliyun.com/product/bailian?source=5176.29345612&userCode=iepl4hse",
   "OpenRouter": "https://openrouter.ai/?ref=REPLACE_ME",
   "Novita AI": "https://novita.ai/?ref=REPLACE_ME",
   "DeepInfra": "https://deepinfra.com/?ref=REPLACE_ME",

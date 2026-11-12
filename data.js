@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-12 21:49",
+  "updated": "2026-11-12 22:12",
   "items": [
     {
       "name": "硅基流动",
@@ -55,8 +55,8 @@ const DATA = {
       "apiBase": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "openaiCompat": true,
       "refInfo": "",
-      "affiliateUrl": "",
-      "hasRef": false
+      "affiliateUrl": "https://www.aliyun.com/product/bailian?source=5176.29345612&userCode=iepl4hse",
+      "hasRef": true
     },
     {
       "name": "百度千帆",
@@ -782,7 +782,7 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-12 21:49",
+    "fetchedAt": "2026-11-12 22:12",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
