@@ -64,3 +64,5 @@ vercel deploy free-llm-hub
 ## ⚠️ 免责声明
 
 各平台免费政策变动频繁，数据采集自公开资料，仅供查询参考，实际额度请以各官网为准。
+
+推荐链接的范围、各平台奖励规则与合规红线见 [monetization.md](monetization.md)。
