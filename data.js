@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-12 22:12",
+  "updated": "2026-11-13 15:40",
   "items": [
     {
       "name": "硅基流动",
@@ -782,8 +782,14 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-12 22:12",
+    "fetchedAt": "2026-11-13 15:40",
     "openrouterFreeModels": [
+      {
+        "id": "apodex/apodex-1.1-mini:free",
+        "name": "Apodex: Apodex 1.1 Mini (free)",
+        "context": 262144,
+        "provider": "apodex"
+      },
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
         "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
@@ -867,6 +873,12 @@ const DATA = {
         "name": "Free Models Router",
         "context": 200000,
         "provider": "openrouter"
+      },
+      {
+        "id": "particle-ai/particle-1:free",
+        "name": "Particle AI: Particle-1 (free)",
+        "context": 1048576,
+        "provider": "particle-ai"
       },
       {
         "id": "recursive/flint-v1.0:free",
