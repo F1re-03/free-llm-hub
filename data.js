@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-13 15:40",
+  "updated": "2026-11-14 15:27",
   "items": [
     {
       "name": "硅基流动",
@@ -782,14 +782,8 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-13 15:40",
+    "fetchedAt": "2026-11-14 15:27",
     "openrouterFreeModels": [
-      {
-        "id": "apodex/apodex-1.1-mini:free",
-        "name": "Apodex: Apodex 1.1 Mini (free)",
-        "context": 262144,
-        "provider": "apodex"
-      },
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
         "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
@@ -833,10 +827,10 @@ const DATA = {
         "provider": "google"
       },
       {
-        "id": "liquid/lfm-2.5-2.6b:free",
-        "name": "LiquidAI: LFM2.5-2.6B (free)",
-        "context": 65536,
-        "provider": "liquid"
+        "id": "inclusionai/ling-3.2-flash:free",
+        "name": "inclusionAI: Ling 3.2 Flash (free)",
+        "context": 1048576,
+        "provider": "inclusionai"
       },
       {
         "id": "liquid/lfm-3-1.7b:free",
