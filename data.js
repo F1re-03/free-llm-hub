@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-12 22:12",
+  "updated": "2026-11-17 16:54",
   "items": [
     {
       "name": "硅基流动",
@@ -782,7 +782,7 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-12 22:12",
+    "fetchedAt": "2026-11-17 16:54",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
@@ -827,10 +827,10 @@ const DATA = {
         "provider": "google"
       },
       {
-        "id": "liquid/lfm-2.5-2.6b:free",
-        "name": "LiquidAI: LFM2.5-2.6B (free)",
-        "context": 65536,
-        "provider": "liquid"
+        "id": "inclusionai/ling-3.2-flash:free",
+        "name": "inclusionAI: Ling 3.2 Flash (free)",
+        "context": 1048576,
+        "provider": "inclusionai"
       },
       {
         "id": "liquid/lfm-3-1.7b:free",
@@ -867,6 +867,12 @@ const DATA = {
         "name": "Free Models Router",
         "context": 200000,
         "provider": "openrouter"
+      },
+      {
+        "id": "particle-ai/particle-1:free",
+        "name": "Particle AI: Particle-1 (free)",
+        "context": 1048576,
+        "provider": "particle-ai"
       },
       {
         "id": "recursive/flint-v1.0:free",
