@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-19 16:30",
+  "updated": "2026-11-20 16:12",
   "items": [
     {
       "name": "硅基流动",
@@ -782,19 +782,13 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-19 16:30",
+    "fetchedAt": "2026-11-20 16:12",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
         "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
         "context": 1024000,
         "provider": "baidu"
-      },
-      {
-        "id": "cohere/north-mini-code:free",
-        "name": "Cohere: North Mini Code (free)",
-        "context": 256000,
-        "provider": "cohere"
       },
       {
         "id": "dots-studio/dots-3-note-preview:free",
@@ -879,12 +873,6 @@ const DATA = {
         "name": "Recursive: Flint (free)",
         "context": 262144,
         "provider": "recursive"
-      },
-      {
-        "id": "thinkingmachines/inkling-2-small:free",
-        "name": "Thinking Machines: Inkling 2 Small (free)",
-        "context": 1048576,
-        "provider": "thinkingmachines"
       }
     ]
   }
