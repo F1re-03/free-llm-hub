@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-22 15:51",
+  "updated": "2026-11-23 16:42",
   "items": [
     {
       "name": "硅基流动",
@@ -782,13 +782,19 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-22 15:51",
+    "fetchedAt": "2026-11-23 16:42",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
         "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
         "context": 1024000,
         "provider": "baidu"
+      },
+      {
+        "id": "dots-studio/dots-3-note-preview:free",
+        "name": "Dots Studio: Dots3-Note Preview (free)",
+        "context": 512000,
+        "provider": "dots-studio"
       },
       {
         "id": "google/gemma-4-26b-a4b-it:free",
