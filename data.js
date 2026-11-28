@@ -1,5 +1,5 @@
 const DATA = {
-  "updated": "2026-11-27 17:29",
+  "updated": "2026-11-28 16:43",
   "items": [
     {
       "name": "硅基流动",
@@ -782,7 +782,7 @@ const DATA = {
     }
   ],
   "live": {
-    "fetchedAt": "2026-11-27 17:29",
+    "fetchedAt": "2026-11-28 16:43",
     "openrouterFreeModels": [
       {
         "id": "baidu/ernie-5.5-flash-preview:free",
@@ -813,12 +813,6 @@ const DATA = {
         "name": "Google: Lyria 3 Pro Preview",
         "context": 1048576,
         "provider": "google"
-      },
-      {
-        "id": "inclusionai/ling-3.2-flash:free",
-        "name": "inclusionAI: Ling 3.2 Flash (free)",
-        "context": 1048576,
-        "provider": "inclusionai"
       },
       {
         "id": "liquid/lfm-3-1.7b:free",
